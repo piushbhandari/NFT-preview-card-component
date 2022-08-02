@@ -59,21 +59,36 @@ body {
   padding: 2.4rem 2.4rem 3.2rem 2.4rem;
   background: #15263f;
   border-radius: 1.5rem;
-  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.952917);
+  cursor: pointer;
 }
 .card:hover {
   transform: translateY(-2rem);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.952917);
 }
 .card__hero-box {
   max-width: 30.2rem;
+  height: 30.2rem;
   margin-bottom: 2.4rem;
   overflow: hidden;
+  position: relative;
+}
+.card__overlay {
+  height: 100%;
+  width: 100%;
+  background-color: rgb(0, 255, 248, 0.5);
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 8px;
+  display: none;
 }
 
 .card__hero-box:hover img {
-  animation: rotate360 0.7s cubic-bezier(0.52, 0.67, 1, 0.47);
+  animation: rotate360 0.7s cubic-bezier(0.52, 0.67, 1, 0.47) infinite;
 }
-
+.card__hero-box:hover .card__overlay {
+  display: flex;
+}
 .card__hero-box img {
   border-radius: 8px;
 }
@@ -83,6 +98,9 @@ body {
   font-size: 2.2rem;
   line-height: 2.8rem;
   margin-bottom: 1.6rem;
+}
+.card:hover .card__title {
+  color: #00fff8;
 }
 .card__description {
   font-weight: 300;
@@ -129,11 +147,63 @@ body {
   line-height: 2rem;
   color: white;
 }
-.card__username span {
+.card:hover .name {
+  color: #00fff8;
+}
+.card__username .dark {
   color: #8bacd9;
   margin-right: 0.5rem;
 }
 
+@media all and (max-width: 26.25em) {
+  body {
+    display: block;
+    padding: 6.2rem 0;
+  }
+
+  .card {
+    width: fit-content;
+    margin: 0 auto;
+    padding: 2.4rem;
+  }
+
+  .card__hero-box {
+    max-width: 27.8rem;
+    height: 27.8rem;
+  }
+
+  .card__description {
+    max-width: 27.8rem;
+    margin-bottom: 1.6rem;
+  }
+  .card__random-box {
+    padding-bottom: 1.6rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .card__meth {
+    font-size: 1.5rem;
+    line-height: 1.9rem;
+  }
+  .card__days-left {
+    font-size: 1.5rem;
+    line-height: 1.9rem;
+  }
+  .card__user-box {
+    flex-wrap: wrap;
+  }
+
+  .card__username {
+    font-size: 1.5rem;
+    line-height: 1.9rem;
+  }
+}
+@media all and (max-width: 23.4375em) {
+  body {
+    padding: 6.2rem 2.4rem;
+  }
+}
 @keyframes rotate360 {
   0% {
     transform: rotate(0);
