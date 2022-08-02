@@ -159,6 +159,7 @@ body {
   body {
     display: block;
     padding: 6.2rem 0;
+    min-height: initial;
   }
 
   .card {
